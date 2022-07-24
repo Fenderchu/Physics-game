@@ -18,7 +18,7 @@ Q (create mode) to switch toggle circle mode
 E to toggle cursor mode (create/select)
 
 D (create mode) dissables physics, used for precise building
-D (select mode) deletes the selected object ***Dose not currently work, dissables select mode permanantly***
+D (select mode) deletes the selected object
 
 1 and 2 (create/select mode) increase/decrease scale multiplier 
 (changes how much the W and S buttons effect objects)
