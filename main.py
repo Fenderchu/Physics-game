@@ -249,22 +249,26 @@ def main_loop():
                     part.body.angular_velocity = 0
                     part.body.velocity = (0,0)
 
-                    if part.shape.collision_type == 3:
-                        selected_objs.remove(part)
-                        space.remove(part.body, part.shape)
-                        particals.remove(part)
-                        cursor_active = True
+                    
                 x, y = pygame.mouse.get_pos()
                 x = int(x/5) * 5
                 y = int(y/5) * 5
 
                 cords = (x, y)
                 part.body.position = cords
-                if cursor_active:
+                if cursor_active and not part.shape.collision_type == 3:
                     cursor.shape.collision_type = 2
                     cursor_active = False
                     if fifo_bool:
                         space.remove(cursor.body, cursor.shape)
+                        fifo_bool = False
+                
+                if part.shape.collision_type == 3:
+                        selected_objs.remove(part)
+                        space.remove(part.body, part.shape)
+                        particals.remove(part)
+                        cursor_active = True
+                        cursor.shape.collision_type = 2
                         fifo_bool = False
                                 
             else:
